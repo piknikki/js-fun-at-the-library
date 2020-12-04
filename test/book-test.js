@@ -111,7 +111,7 @@ describe("book.js", function () {
     it("should return a book object", function () {
       var bookTitle = createTitle("Teenage Ghoul");
       var bookCharacter = buildMainCharacter("Vassya", 16, "she/her");
-      var book = writeBook(bookTitle, bookCharacter, 340, "fantasy");
+      var book = writeBook(bookTitle, bookCharacter, "fantasy");
 
       assert.equal(book.title, bookTitle);
       assert.equal(book.mainCharacter, bookCharacter);
@@ -122,7 +122,7 @@ describe("book.js", function () {
     it("should return a different book object", function () {
       var dragonTitle = createTitle("The Dragon in the Summer");
       var dragonCharacter = buildMainCharacter("Dana", 25, "they/them");
-      var dragonBook = writeBook(dragonTitle, dragonCharacter, 560,"fantasy");
+      var dragonBook = writeBook(dragonTitle, dragonCharacter, "fantasy");
 
       assert.equal(dragonBook.title, dragonTitle);
       assert.equal(dragonBook.mainCharacter, dragonCharacter);
@@ -139,7 +139,9 @@ describe("book.js", function () {
     it("should decrease the book's page count to be three quarters of what it originally was", function () {
       var ghoulTitle = createTitle("Teenage Ghoul");
       var ghoulCharacter = buildMainCharacter("Vassya", 16, "she/her");
-      var ghoulBook = writeBook(ghoulTitle, ghoulCharacter, 340, "mystery");
+      var ghoulBook = writeBook(ghoulTitle, ghoulCharacter, "mystery");
+      console.log(ghoulTitle)
+
 
       assert.equal(ghoulBook.pageCount, 340);
 
