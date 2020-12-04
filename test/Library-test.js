@@ -77,7 +77,7 @@ describe("library.js", function() {
     });
   });
 
-  describe.only("checkoutBook", function() {
+  describe("checkoutBook", function() {
     it("should unshelf a book to check out a book to a patron", function() {
       var dracula = {
         title: "Dracula",
