@@ -1,12 +1,12 @@
-function shelfBook(shelf, title) {
-  if (shelf.length <= 3) {
+function shelfBook(title, shelf) {
+  if (shelf.length < 3) {
     shelf.unshift(title);
   }
 }
 
-function unshelfBook(shelf, bookTitle) {
+function unshelfBook(title, shelf) {
   for (let i = 0; i < shelf.length; i++) {
-    if (shelf[i].title === bookTitle) {
+    if (shelf[i].title === title) {
       shelf.splice(i, 1);
     }
   }

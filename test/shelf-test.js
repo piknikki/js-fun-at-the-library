@@ -28,11 +28,11 @@ describe("shelf.js", function() {
       };
       var sciFiShelf = [];
 
-      shelfBook(sciFiShelf, hyperion);
-      shelfBook(sciFiShelf, dune);
+      shelfBook(hyperion, sciFiShelf);
+      shelfBook(dune, sciFiShelf);
 
-      assert.equal(sciFiShelf[1], hyperion);
       assert.equal(sciFiShelf[0], dune);
+      assert.equal(sciFiShelf[1], hyperion);
     });
 
     it("should add another book to the shelf", function() {
@@ -56,8 +56,8 @@ describe("shelf.js", function() {
       };
       var sciFiShelf = [hyperion];
 
-      shelfBook(sciFiShelf, endersGame);
-      shelfBook(sciFiShelf, dune);
+      shelfBook(endersGame, sciFiShelf);
+      shelfBook(dune, sciFiShelf);
 
       assert.equal(sciFiShelf[0], dune);
       assert.equal(sciFiShelf[1], endersGame);
@@ -91,7 +91,7 @@ describe("shelf.js", function() {
       };
       var sciFiShelf = [hyperion, dune];
 
-      shelfBook(sciFiShelf, endersGame);
+      shelfBook(endersGame, sciFiShelf);
 
       assert.equal(sciFiShelf.length, 3);
       assert.deepEqual(sciFiShelf, [endersGame, hyperion, dune]);
@@ -129,7 +129,7 @@ describe("shelf.js", function() {
       };
       var sciFiShelf = [hyperion, dune, endersGame];
 
-      unshelfBook(sciFiShelf, "Dune");
+      unshelfBook("Dune", sciFiShelf);
 
       assert.equal(sciFiShelf.length, 2);
       assert.deepEqual(sciFiShelf, [hyperion, endersGame]);
@@ -169,10 +169,6 @@ describe("shelf.js", function() {
   });
 
   describe("searchShelf", function() {
-    it("should be a function", function () {
-      assert.isFunction(searchShelf);
-    });
-
     it("should tell us if a title is on the shelf", function() {
       var hyperion = {
         title: "Hyperion",
