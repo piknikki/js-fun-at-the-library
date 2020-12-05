@@ -17,7 +17,7 @@ function listTitles(shelf) {
   for (let i = 0; i < shelf.length; i++) {
     bookTitles.push(shelf[i].title);
   }
-  return bookTitles.join(', ')
+  return bookTitles.join(', ');
 }
 
 function searchShelf(shelf, title) {

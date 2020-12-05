@@ -26,9 +26,6 @@ function checkoutBook(library, title, genre) {
     library.shelves[genre] = []
     return `You have now checked out ${title} from the ${library.name}`
   }
-
-
-
 }
 
 module.exports = {
