@@ -17,17 +17,16 @@ function saveReview(headline, reviews) {
 }
 
 function calculatePageCount(title) {
-  var bookPageCount = 0;
-  bookPageCount = bookPageCount + (title.length * 20)
+  var bookPageCount = title.length * 20
   return bookPageCount;
 }
 
-function writeBook(bookTitle, bookCharacter, genre) {
+function writeBook(title, mainCharacter, genre) {
   return {
-    title: bookTitle,
-    mainCharacter: bookCharacter,
-    pageCount: calculatePageCount(bookTitle),
-    genre: genre
+    title,
+    mainCharacter,
+    pageCount: calculatePageCount(title),
+    genre
   }
 }
 
