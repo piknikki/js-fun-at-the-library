@@ -12,13 +12,31 @@ class Librarian {
     }
   }
 
-  findBook(searchTerm) {
-    if (this.library.shelves.fantasy[0].title === searchTerm) {
-      this.library.shelves.fantasy = [];
-      return `Yes, we have ${searchTerm}`
-    } else {
-      return `Sorry, we do not have ${searchTerm}`
+  findGenre() {
+    var genreArray = []
+    for (var genre in this.library.shelves) {
+      genreArray.push(genre)
     }
+    return genreArray
+  }
+
+  findBook(searchTerm) {
+    var genreArr = this.findGenre()
+
+    for (let i = 0; i <= 3; i++) {
+      for (let g = 0; g < genreArr.length; g++) {
+        var genre = genreArr[g]
+        if (this.library.shelves[genre][0].title === searchTerm) {
+          this.library.shelves[genre] = [];
+          return `Yes, we have ${searchTerm}`
+        } else {
+          return `Sorry, we do not have ${searchTerm}`
+        }
+      }
+    }
+
+
+
   }
 
   calculateLateFee(days) {
