@@ -23,7 +23,7 @@ class Librarian {
   findBook(searchTerm) {
     var genreArr = this.findGenre()
 
-    for (var i = 0; i <= 3; i++) {
+    for (var i = 0; i < genreArr.length; i++) {
       for (var g = 0; g < genreArr.length; g++) {
         var genre = genreArr[g]
         if (this.library.shelves[genre][0].title === searchTerm) {
