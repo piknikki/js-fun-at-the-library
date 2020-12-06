@@ -22,7 +22,7 @@ class Librarian {
 
   findBook(searchTerm) {
     var genreArr = this.findGenre()
-    var response = "nope"
+    var response = ""
 
     for (var i = 0; i < genreArr.length; i++) {
       var genre = genreArr[i]
@@ -35,13 +35,11 @@ class Librarian {
       }
       return response
     }
-
 }
 
   calculateLateFee(days) {
     return Math.ceil(days * 0.25)
   }
-
 }
 
 module.exports = Librarian;
