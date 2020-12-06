@@ -23,21 +23,16 @@ class Librarian {
   findBook(searchTerm) {
     var genreArr = this.findGenre()
 
-    for (var i = 0; i < genreArr.length; i++) {
-      for (var g = 0; g < genreArr.length; g++) {
-        var genre = genreArr[g]
-        if (this.library.shelves[genre][0].title === searchTerm) {
-          this.library.shelves[genre] = [];
-          return `Yes, we have ${searchTerm}`
-        } else {
-          return `Sorry, we do not have ${searchTerm}`
-        }
+    for (var g = 0; g < genreArr.length; g++) {
+      var genre = genreArr[g]
+      if (this.library.shelves[genre][0].title === searchTerm) {
+        this.library.shelves[genre] = [];
+        return `Yes, we have ${searchTerm}`
+      } else {
+        return `Sorry, we do not have ${searchTerm}`
       }
     }
-
-
-
-  }
+}
 
   calculateLateFee(days) {
     return Math.ceil(days * 0.25)
