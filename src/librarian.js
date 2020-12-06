@@ -22,16 +22,20 @@ class Librarian {
 
   findBook(searchTerm) {
     var genreArr = this.findGenre()
+    var response = "nope"
 
-    for (var g = 0; g < genreArr.length; g++) {
-      var genre = genreArr[g]
-      if (this.library.shelves[genre][0].title === searchTerm) {
+    for (var i = 0; i < genreArr.length; i++) {
+      var genre = genreArr[i]
+
+      if (this.library.shelves[genre] === [] || this.library.shelves[genre][0].title !== searchTerm) {
+        response = `Sorry, we do not have ${searchTerm}`
+      } else if (this.library.shelves[genre][0].title === searchTerm) {
+        response = `Yes, we have ${searchTerm}`
         this.library.shelves[genre] = [];
-        return `Yes, we have ${searchTerm}`
-      } else {
-        return `Sorry, we do not have ${searchTerm}`
       }
+      return response
     }
+
 }
 
   calculateLateFee(days) {
