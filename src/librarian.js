@@ -12,29 +12,23 @@ class Librarian {
     }
   }
 
-  findGenre() {
-    var genreArray = []
-    for (var genre in this.library.shelves) {
-      genreArray.push(genre)
-    }
-    return genreArray
-  }
-
   findBook(searchTerm) {
-    var genreArr = this.findGenre()
     var response = ""
 
-    for (var i = 0; i < genreArr.length; i++) {
-      var genre = genreArr[i]
-
-      if (this.library.shelves[genre] === [] || this.library.shelves[genre][0].title !== searchTerm) {
-        response = `Sorry, we do not have ${searchTerm}`
-      } else if (this.library.shelves[genre][0].title === searchTerm) {
-        response = `Yes, we have ${searchTerm}`
-        this.library.shelves[genre] = [];
-      }
-      return response
+    if (this.library.shelves.fantasy[0] !== undefined && this.library.shelves.fantasy[0].title === searchTerm) {
+      response = `Yes, we have ${searchTerm}`
+      this.library.shelves.fantasy = [];
+    } else if (this.library.shelves.fiction[0] !== undefined && this.library.shelves.fiction[0].title === searchTerm) {
+      response = `Yes, we have ${searchTerm}`
+      this.library.shelves.fiction = [];
+    } else if (this.library.shelves.nonFiction[0] !== undefined && this.library.shelves.nonFiction[0].title === searchTerm) {
+      response = `Yes, we have ${searchTerm}`
+      this.library.shelves.nonFiction = [];
+    } else {
+      response = `Sorry, we do not have ${searchTerm}`
     }
+
+    return response
 }
 
   calculateLateFee(days) {

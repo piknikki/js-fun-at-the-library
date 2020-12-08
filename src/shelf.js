@@ -25,6 +25,7 @@ function searchShelf(shelf, title) {
     var allTitles = []
     allTitles.push(shelf[i].title)
   }
+
   if (allTitles.includes(title)) {
     return true
   } else {
